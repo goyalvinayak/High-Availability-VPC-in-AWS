@@ -46,6 +46,33 @@ Select the public subnet ,go to Edit Subnet Settings and enble the option-
 
 ### NAT Gateway for Private Subnets
 #### Creating an Elastic IP for NAT Gateway
+![image](https://github.com/user-attachments/assets/a2ebd3cc-4fe2-4a1f-b755-dd7a479f6fd6)
+
+#### Creating NAT Gateway
+![image](https://github.com/user-attachments/assets/d5c68bad-cf04-4216-bfd5-a724748ff294)
+![image](https://github.com/user-attachments/assets/16d9c6a9-29e0-44de-abfe-f4b8158051d7)
+
+#### Route Table for Private Subnets
+![image](https://github.com/user-attachments/assets/add33274-711c-44e2-a692-235ca88add07)
+![image](https://github.com/user-attachments/assets/cb24dd48-e8b4-4944-9463-0891f128294c)
+
+### Enabling DNS Hostnames
+By enabling this, our Instances will get DNS hostnames also.
+![image](https://github.com/user-attachments/assets/2416be3c-e68d-4235-bab2-8ab0c5172ab2)
+
+### Bastion Host
+A Bastion host is a special-purpose server or an instance that is used to configure to work against the attacks or threats. It is also known as the ‘jump box’ that acts like a proxy server and allows the client machines to connect to the remote server. It is basically a gateway between the private subnet and the internet. It allows the user to connect private network from an external network and act as  proxy to other instances. 
+
+Using this, we can access any resource in a private subnet. Why using Bastion Host- because we cannot access resources from Internet because they are in private subnet. So the bation host become a single entry point to access resources in private subnet.  
+
+#### Making SG for our Bastion Host
+
+
+
+
+
+
+
 
 
 
