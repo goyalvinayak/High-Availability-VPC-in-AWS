@@ -101,6 +101,16 @@ Mapping for Load Balancer-
 Editing SG of our private instance to allow traffic from load balancer-
 ![image](https://github.com/user-attachments/assets/55e2c0bd-c602-4087-b682-08ed16c47cdc)
 
+Wait for sometime to check if target is healthy or not-
+![image](https://github.com/user-attachments/assets/46d72a48-6e60-4007-8a19-1dcb63f2e8fa)
+
+After that using DNS from our load balancer to access the site-
+![image](https://github.com/user-attachments/assets/2b08d8ca-7491-4f19-b775-e60367102389)
+![image](https://github.com/user-attachments/assets/73e12674-3c90-45d9-b941-468038db0971)
+
+
+
+
 
 
 
