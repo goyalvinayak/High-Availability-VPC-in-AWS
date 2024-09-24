@@ -16,7 +16,7 @@
 * Route Tables: 2 (1 for pub-subnet and 1 for priv-subnet)
 * Bastion Host: 1 in Public Subnet
 
-## Creating VPC and other components
+## Creating VPC and subnets
 ### VPC
 ![image](https://github.com/user-attachments/assets/0e147cd4-b030-4894-b320-7f0319ae5977)
 
@@ -27,7 +27,7 @@
 ![image](https://github.com/user-attachments/assets/7fadbd01-93f6-4470-b5e0-0f6cee8915b3)
 ![image](https://github.com/user-attachments/assets/b7165f77-f34f-47fe-be97-ab25d124b3da)
 
-### Internet Gateway 
+## Internet Gateway 
 Create an Internet Gateway and then go to Actions ,and attach it to our project VPC.
 ![image](https://github.com/user-attachments/assets/7afa96d4-8599-4f15-947c-b28f2524c531)
 
@@ -44,7 +44,7 @@ To make it actually public, we will add route in Edit Routes option-
 Select the public subnet ,go to Edit Subnet Settings and enble the option-
 ![image](https://github.com/user-attachments/assets/a5845b17-813f-4ad6-a440-4a9a56afd3ff)
 
-### NAT Gateway for Private Subnets
+## NAT Gateway for Private Subnets
 #### Creating an Elastic IP for NAT Gateway
 ![image](https://github.com/user-attachments/assets/d1b68dca-2764-45f4-bdad-8d21833aee86)
 
@@ -56,11 +56,11 @@ Select the public subnet ,go to Edit Subnet Settings and enble the option-
 ![image](https://github.com/user-attachments/assets/add33274-711c-44e2-a692-235ca88add07)
 ![image](https://github.com/user-attachments/assets/cb24dd48-e8b4-4944-9463-0891f128294c)
 
-### Enabling DNS Hostnames
+#### Enabling DNS Hostnames
 By enabling this, our Instances will get DNS hostnames also.
 ![image](https://github.com/user-attachments/assets/2416be3c-e68d-4235-bab2-8ab0c5172ab2)
 
-### Bastion Host
+## Bastion Host
 A Bastion host is a special-purpose server or an instance that is used to configure to work against the attacks or threats. It is also known as the ‘jump box’ that acts like a proxy server and allows the client machines to connect to the remote server. It is basically a gateway between the private subnet and the internet. It allows the user to connect private network from an external network and act as  proxy to other instances. 
 
 Using this, we can access any resource in a private subnet. Why using Bastion Host- because we cannot access resources from Internet because they are in private subnet. So the bation host become a single entry point to access resources in private subnet.  
@@ -75,7 +75,7 @@ In real time, we should use AMIs that are tested for vulnerability (eg. CIS AMIs
 ![image](https://github.com/user-attachments/assets/d4f84cf9-9652-48ce-8f95-a43333a2990a)
 Login to this instance using public IP provided. Now this bastion host instance will be used to SSH login to instance that will be created in private subnet.
 
-### Instance in Private Subnet
+## Instance in Private Subnet
 Create a key-pair for this instance and store it in bastion host instance. After that we are going to copy this to our bastion host using command-
 ```
 scp -i "/d/Users/Vinayak/Downloads/project-key-pair.pem" "/d/Users/Vinayak/Downloads/project-web-key.pem" ubuntu@13.56.165.53:/home/ubuntu/
