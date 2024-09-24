@@ -46,11 +46,11 @@ Select the public subnet ,go to Edit Subnet Settings and enble the option-
 
 ### NAT Gateway for Private Subnets
 #### Creating an Elastic IP for NAT Gateway
-![image](https://github.com/user-attachments/assets/a2ebd3cc-4fe2-4a1f-b755-dd7a479f6fd6)
+![image](https://github.com/user-attachments/assets/d1b68dca-2764-45f4-bdad-8d21833aee86)
 
 #### Creating NAT Gateway
 ![image](https://github.com/user-attachments/assets/d5c68bad-cf04-4216-bfd5-a724748ff294)
-![image](https://github.com/user-attachments/assets/16d9c6a9-29e0-44de-abfe-f4b8158051d7)
+![image](https://github.com/user-attachments/assets/c24290da-c2f6-43af-a7ca-10a13bb3e351)
 
 #### Route Table for Private Subnets
 ![image](https://github.com/user-attachments/assets/add33274-711c-44e2-a692-235ca88add07)
@@ -66,6 +66,47 @@ A Bastion host is a special-purpose server or an instance that is used to config
 Using this, we can access any resource in a private subnet. Why using Bastion Host- because we cannot access resources from Internet because they are in private subnet. So the bation host become a single entry point to access resources in private subnet.  
 
 #### Making SG for our Bastion Host
+Allowing SSH login from my IP-
+![image](https://github.com/user-attachments/assets/7f871300-b0ec-4e63-9e82-57f7688d1f3f)
+
+#### Creating an Bastion Host
+In real time, we should use AMIs that are tested for vulnerability (eg. CIS AMIs). Network Settings-
+![image](https://github.com/user-attachments/assets/585e9b21-a728-4038-a179-67521ae112b8)
+![image](https://github.com/user-attachments/assets/d4f84cf9-9652-48ce-8f95-a43333a2990a)
+Login to this instance using public IP provided. Now this bastion host instance will be used to SSH login to instance that will be created in private subnet.
+
+### Instance in Private Subnet
+Create a key-pair for this instance and store it in bastion host instance. After that we are going to copy this to our bastion host using command-
+```
+scp -i "/d/Users/Vinayak/Downloads/project-key-pair.pem" "/d/Users/Vinayak/Downloads/project-web-key.pem" ubuntu@13.56.165.53:/home/ubuntu/
+```
+![image](https://github.com/user-attachments/assets/3adbb510-2644-45d1-837a-cd11a193a2cc)
+![image](https://github.com/user-attachments/assets/32133ab0-1557-47a5-9afb-eb6e5af3d7e8)
+
+Instance: VPC-Poejct VPC, Subent-Private, SG- Type:Custom Source:Sg of our bastion host
+![image](https://github.com/user-attachments/assets/219df6fe-cd9c-44fc-8f52-13c6eda662d1)
+It will only have private IP because it is in private subnet.
+
+Logging in- We can use private ip here beacause we have defined access in SG to our Private Instance from bastion host.
+![image](https://github.com/user-attachments/assets/d399530d-386e-4930-8661-b06088afa685)
+
+Now download all dependencies for a website and download a template from tooplate.com. After this, making a load balancer for our private instance to access that site.
+![image](https://github.com/user-attachments/assets/c8fdbcd8-687a-489a-b5a2-efdc8e4d9460)
+![image](https://github.com/user-attachments/assets/72375092-ec1c-4665-accf-3921f3e48bb8)
+
+Mapping for Load Balancer-
+![image](https://github.com/user-attachments/assets/ac73e77c-79af-48b5-ba70-1adbcebcbfac)
+![image](https://github.com/user-attachments/assets/72416634-fba9-4285-a2b3-aef850341a1b)
+
+Editing SG of our private instance to allow traffic from load balancer-
+![image](https://github.com/user-attachments/assets/55e2c0bd-c602-4087-b682-08ed16c47cdc)
+
+
+
+
+
+
+
 
 
 
